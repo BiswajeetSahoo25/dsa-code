@@ -1,0 +1,16 @@
+class Solution {
+public:
+    string encode(string s){
+        string res;
+        unordered_map<char,int> mp;
+        int idx = 0;
+        for(char c : s){
+            if(!mp.count(c)) mp[c] = idx++;
+            res += to_string(mp[c] + ',');
+        }
+        return res;
+    }
+    bool isIsomorphic(string s, string t) {
+        return encode(s) == encode(t);
+    }
+};
